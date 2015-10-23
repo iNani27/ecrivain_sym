@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Auteur</h1> {% include 'ExempleAnnotationBundle:Default:menu.html.twig'%}
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Lenom</th>
+                <td>{{ entity.lenom }}</td>
+            </tr>
+            <tr>
+                <th>Leprenom</th>
+                <td>{{ entity.leprenom }}</td>
+            </tr>
+            <tr>
+                <th>Labio</th>
+                <td>{{ entity.labio }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('auteur2') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('auteur2_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

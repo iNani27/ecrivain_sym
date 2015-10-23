@@ -1,0 +1,47 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Livre list</h1> {% include 'ExempleAnnotationBundle:Default:menu.html.twig'%}
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Letitre</th>
+                <th>Leslug</th>
+                <th>Leresume</th>
+                <th>Laparution</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('livre_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.letitre }}</td>
+                <td>{{ entity.leslug }}</td>
+                <td>{{ entity.leresume }}</td>
+                <td>{% if entity.laparution %}{{ entity.laparution|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('livre_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('livre_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('livre_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Auteur creation</h1> {% include 'ExempleAnnotationBundle:Default:menu.html.twig'%}
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('auteur2') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}
